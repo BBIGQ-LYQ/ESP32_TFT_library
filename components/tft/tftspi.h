@@ -124,6 +124,43 @@
 #define PIN_BCKL_OFF 0  	// GPIO value for backlight OFF
 // ---------------------------------------------------------
 
+#elif CONFIG_EXAMPLE_DISPLAY_TYPE == 4
+// ** Set the correct configuration for T-wristband
+// ---------------------------------------------------------
+#define DEFAULT_DISP_TYPE   DISP_TYPE_ST7735
+#define DEFAULT_TFT_DISPLAY_WIDTH   160
+#define DEFAULT_TFT_DISPLAY_HEIGHT  80
+#define DISP_COLOR_BITS_24          0x66
+#define DEFAULT_GAMMA_CURVE         0
+#define DEFAULT_SPI_CLOCK           27000000
+#define TFT_INVERT_ROTATION         0
+#define TFT_INVERT_ROTATION1        1
+#define TFT_INVERT_ROTATION2        0   // Adapte M5Stack TFT
+#define TFT_RGB_BGR                 0x08
+
+#define USE_TOUCH                   TOUCH_TYPE_NONE
+
+//#define TFT_RST             26   // Set TFT_RST to -1 if the display RESET is connected to NodeMCU RST or 3.3V
+//#define TFT_MISO            -1
+//#define TFT_MOSI            19
+//#define TFT_SCLK            18
+//#define TFT_CS              5
+//#define TFT_DC              23
+//#define TFT_BL              27  // Dispaly backlight control pin
+
+#define PIN_NUM_MISO 0		// SPI MISO
+#define PIN_NUM_MOSI 19		// SPI MOSI
+#define PIN_NUM_CLK  18		// SPI CLOCK pin
+#define PIN_NUM_CS   5		// Display CS pin
+#define PIN_NUM_DC   23		// Display command/data pin
+#define PIN_NUM_TCS  33		// Touch screen CS pin (NOT used if USE_TOUCH=0)
+
+#define PIN_NUM_RST  26  	// GPIO used for RESET control (#16)
+#define PIN_NUM_BCKL 27  	// GPIO used for backlight control
+#define PIN_BCKL_ON  1  	// GPIO value for backlight ON
+#define PIN_BCKL_OFF 0  	// GPIO value for backlight OFF
+// ---------------------------------------------------------
+ 
 #else
 
 // Configuration for other boards, set the correct values for the display used

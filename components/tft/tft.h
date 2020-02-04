@@ -10,6 +10,11 @@
 #include <stdlib.h>
 #include "tftspi.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef struct {
 	uint16_t        x1;
 	uint16_t        y1;
@@ -675,5 +680,9 @@ int compile_font_file(char *fontfile, uint8_t dbg);
  * Get all font's characters to buffer
  */
 void getFontCharacters(uint8_t *buf);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

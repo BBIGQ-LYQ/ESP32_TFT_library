@@ -10,14 +10,24 @@
  * Jaume Olivé (jolive@iberoxarxa.com / jolive@whitecatboard.org)
  *
  */
+#ifndef _SPIFFS_VFS_H_
+#define _SPIFFS_VFS_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define SPIFFS_BASE_PATH "/spiffs"
-
-
-int spiffs_is_registered;
-int spiffs_is_mounted;
 
 void vfs_spiffs_register();
 int spiffs_mount();
 int spiffs_unmount(int unreg);
 void spiffs_fs_stat(uint32_t *total, uint32_t *used);
+int get_spiffs_is_registered();
+int get_spiffs_is_mounted();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

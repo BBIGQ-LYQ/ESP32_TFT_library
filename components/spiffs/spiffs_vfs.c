@@ -25,10 +25,10 @@
 #include "esp_attr.h"
 #include <errno.h>
 
-#include <spiffs_vfs.h>
-#include <spiffs.h>
-#include <esp_spiffs.h>
-#include <spiffs_nucleus.h>
+#include "spiffs_vfs.h"
+#include "spiffs.h"
+#include "esp_spiffs.h"
+#include "spiffs_nucleus.h"
 #include "list.h"
 #include <sys/fcntl.h>
 #include <sys/dirent.h>
@@ -82,6 +82,14 @@ static u8_t *my_spiffs_work_buf;
 static u8_t *my_spiffs_fds;
 static u8_t *my_spiffs_cache;
 
+int get_spiffs_is_registered()
+{
+    return spiffs_is_registered;
+}
+int get_spiffs_is_mounted()
+{
+    return spiffs_is_mounted;
+}
 
 /*
  * ########################################

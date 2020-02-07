@@ -7,6 +7,10 @@
 #ifndef _TFTSPI_H_
 #define _TFTSPI_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "tftspi.h"
 #include "spi_master_lobo.h"
 #include "sdkconfig.h"
@@ -128,14 +132,14 @@
 // ** Set the correct configuration for T-wristband
 // ---------------------------------------------------------
 #define DEFAULT_DISP_TYPE   DISP_TYPE_ST7735
-#define DEFAULT_TFT_DISPLAY_WIDTH   160
-#define DEFAULT_TFT_DISPLAY_HEIGHT  80
+#define DEFAULT_TFT_DISPLAY_WIDTH   110
+#define DEFAULT_TFT_DISPLAY_HEIGHT  160
 #define DISP_COLOR_BITS_24          0x66
 #define DEFAULT_GAMMA_CURVE         0
 #define DEFAULT_SPI_CLOCK           27000000
 #define TFT_INVERT_ROTATION         0
 #define TFT_INVERT_ROTATION1        1
-#define TFT_INVERT_ROTATION2        0   // Adapte M5Stack TFT
+#define TFT_INVERT_ROTATION2        1   // Adapte M5Stack TFT
 #define TFT_RGB_BGR                 0x08
 
 #define USE_TOUCH                   TOUCH_TYPE_NONE
@@ -710,5 +714,9 @@ int stmpe610_get_touch(uint16_t *x, uint16_t *y, uint16_t *z);
 uint32_t stmpe610_getID();
 
 // ===============================================================================
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -485,7 +485,7 @@ int TFT_getfontheight();
  *
  */
 //-------------------------------------
-void TFT_print(char *st, int x, int y);
+void TFT_print(const char *st, int x, int y);
 
 /*
  * Set atributes for 7 segment vector font
@@ -580,7 +580,7 @@ int TFT_compare_colors(color_t c1, color_t c2);
  * Useful for positions strings on the screen.
  */
 //--------------------------------
-int TFT_getStringWidth(char* str);
+int TFT_getStringWidth(const char* str);
 
 
 /*
@@ -623,7 +623,7 @@ color_t HSBtoRGB(float _hue, float _sat, float _brightness);
  *
  */
 //-----------------------------------------------------------------------------------
-void TFT_jpg_image(int x, int y, uint8_t scale, char *fname, uint8_t *buf, int size);
+void TFT_jpg_image(int x, int y, uint8_t scale, const char *fname, uint8_t *buf, int size);
 
 /*
  * Decodes and displays BMP image

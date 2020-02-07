@@ -15,7 +15,7 @@
 #include "tft.h"
 #include "time.h"
 #include <math.h>
-#include "rom/tjpgd.h"
+#include "esp32/rom/tjpgd.h"
 #include "esp_heap_caps.h"
 #include "tftspi.h"
 
@@ -1775,7 +1775,7 @@ static int _7seg_height()
 // Returns the string width in pixels.
 // Useful for positions strings on the screen.
 //===============================
-int TFT_getStringWidth(char* str)
+int TFT_getStringWidth(const char* str)
 {
     int strWidth = 0;
 
@@ -1783,7 +1783,7 @@ int TFT_getStringWidth(char* str)
 	else if (cfont.x_size != 0) strWidth = strlen(str) * cfont.x_size;			// fixed width font
 	else {
 		// calculate the width of the string of proportional characters
-		char* tempStrptr = str;
+        const char* tempStrptr = str;
 		while (*tempStrptr != 0) {
 			if (getCharPtr(*tempStrptr++)) {
 				strWidth += (((fontChar.width > fontChar.xDelta) ? fontChar.width : fontChar.xDelta) + 1);
@@ -1926,7 +1926,7 @@ static void _draw7seg(int16_t x, int16_t y, int8_t num, int16_t w, int16_t l, co
 //==============================================================================
 
 //======================================
-void TFT_print(char *st, int x, int y) {
+void TFT_print(const char *st, int x, int y) {
 	int stl, i, tmpw, tmph, fh;
 	uint8_t ch;
 
@@ -2379,7 +2379,7 @@ static UINT tjd_output (
 // tft.jpgimage(X, Y, scale, file_name, buf, size]
 // X & Y can be < 0 !
 //==================================================================================
-void TFT_jpg_image(int x, int y, uint8_t scale, char *fname, uint8_t *buf, int size)
+void TFT_jpg_image(int x, int y, uint8_t scale, const char *fname, uint8_t *buf, int size)
 {
 	JPGIODEV dev;
     struct stat sb;

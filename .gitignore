@@ -17,6 +17,7 @@ GPATH
 .#*
 \#*#
 
+Kconfig.projbuild
 sdkconfig
 sdkconfig.old
 sdkconfig.lobo

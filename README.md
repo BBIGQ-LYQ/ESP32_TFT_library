@@ -3,9 +3,8 @@
 
 ---
 
-**This library must be built with the latest esp-idf master branch and xtensa toolchain**
-
-If you are using the esp-idf v2.1, checkout the commit *0518df81a6566820352dad7bf6c539995d41ad18*
+**This library is used esp-idf master branch and xtensa toolchain**
+Tested on ESP-IDF v4.1-dev-1572-g30372f5a4-dirty
 
 ---
 
@@ -176,6 +175,21 @@ To run the demo, attach ILI9341, ILI9488 or ST7735 based display module to ESP32
 *   RST: 18 (display RESET)
 * BKLIT:  5 (Display Back light)
 
+---
+
+*To run the demo on* **LilyGO-T-Wristband** *select predefined display configuration in menuconfig:*
+*TFT Display Configuration->Select predefined display configuration(T-Wristband TFT display)*
+Predefined configuretion is:
+*  mosi: 19
+*  miso: -1//not used
+*   sck: 18
+*    CS:  5 (display CS)
+*    DC: 23 (display DC)
+*   TCS: -1 (touch screen CS), not used
+*   RST: 26 (display RESET)
+* BKLIT: 27 (Display Back light)
+___
+
 Also set **TFT_RGB_BGR** to 0x00 and **TFT_INVERT_ROTATION1** to 1 in *tftspi.h*
 
 **You can also select EXAMPLE_ESP_WROVER_KIT in menuconfig to automaticaly define correct configuration**
@@ -204,11 +218,13 @@ Navigate to **TFT Display DEMO Configuration** and set **SPIFFS** options.
 
 Select if you want to use **wifi** (recommended) to get the time from **NTP** server and set your WiFi SSID and password.
 
-`make menuconfig`
+`idf.py menuconfig`
 
 Make and flash the example.
 
-`make all && make flash`
+`idf.py build`
+
+`idf.py -p /dev/ttyUSB0 flash`
 
 ---
 
@@ -373,6 +389,9 @@ Send color buffer time: 228 us (240 pixels)
 ---
 
 ### Tested on
+
+LilyGO-T-Wristband
+![Tested on](https://cnx-software.ru/wp-content/uploads/2020/01/TTGO-T-Wristband.jpg)
 
 ESP32-WROVER-KIT v3, ST7789V controller, 240x320
 ![Tested on](https://raw.githubusercontent.com/loboris/MicroPython_ESP32_psRAM_LoBo/master/Documents/disp_wrower-kit.jpg)

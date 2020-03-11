@@ -1490,8 +1490,8 @@ void TFT_setFont(uint8_t font, const char *font_file)
 
   if (font == FONT_7SEG) {
     cfont.bitmap = 2;
-    cfont.x_size = 24;
-    cfont.y_size = 6;
+    cfont.x_size = 12;
+    cfont.y_size = 3;
     cfont.offset = 0;
     cfont.color  = _fg;
   }

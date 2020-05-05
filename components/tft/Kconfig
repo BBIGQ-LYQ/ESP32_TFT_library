@@ -1,0 +1,32 @@
+menu "TFT driver"
+
+
+choice EXAMPLE_DISPLAY_TYPE
+    prompt "tft_screen"
+    default DISP_TYPE_ST7735R
+
+config DISP_TYPE_ILI9341
+    bool "ILI9341"
+config DISP_TYPE_ILI9488
+    bool "ILI9488"
+config DISP_TYPE_ST7789V
+    bool "ST7789V"
+config DISP_TYPE_ST7735
+    bool "ST7735"
+config DISP_TYPE_ST7735R
+    bool "ST7735R"
+config DISP_TYPE_ST7735B
+    bool "ST7735B"
+endchoice
+
+config EXAMPLE_DISPLAY_TYPE
+    int 
+    default 0 if DISP_TYPE_ILI9341
+    default 1 if DISP_TYPE_ILI9488
+    default 2 if DISP_TYPE_ST7789V
+    default 3 if DISP_TYPE_ST7735
+    default 4 if DISP_TYPE_ST7735R
+    default 5 if DISP_TYPE_ST7735B
+
+
+endmenu
